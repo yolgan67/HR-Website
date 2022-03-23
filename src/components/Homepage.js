@@ -15,7 +15,7 @@ import logo from "../logo.png";
 import capture1 from "../images/capture1.png";
 import capture3 from "../images/capture3.png";
 import "./style.css";
-import {fetch_API} from '../actions/userActions'
+
 
 export default function Homepage() {
   const [showA, setShowA] = useState(false);
@@ -23,7 +23,7 @@ export default function Homepage() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setShowA(true);
-    fetch_API()
+   
   };
   const closeToast = setTimeout(() => {
     setShowA(false);
@@ -146,7 +146,6 @@ export default function Homepage() {
             </Button>
           </fieldset>
         </Form>
-       
       </Container>
       {/* Form End  */}
     </div>
