@@ -1,67 +1,154 @@
-import React from 'react'
-import {Routes,Route,Link} from 'react-router-dom'
-import {Container,Navbar,Nav,Carousel} from 'react-bootstrap'
-import logo from '../logo.png'
-import capture1 from '../images/capture1.png'
-import capture2 from '../images/capture2.png'
-import capture3 from '../images/capture3.png'
+import React, { useState } from "react";
+import {
+  Container,
+  Row,
+  Col,
+  Navbar,
+  Nav,
+  Carousel,
+  Form,
+  Button,
+  Toast,
+  ToastContainer,
+} from "react-bootstrap";
+import logo from "../logo.png";
+import capture1 from "../images/capture1.png";
+import capture3 from "../images/capture3.png";
+import "./style.css";
+import {fetch_API} from '../actions/userActions'
 
 export default function Homepage() {
+  const [showA, setShowA] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setShowA(true);
+    fetch_API()
+  };
+  const closeToast = setTimeout(() => {
+    setShowA(false);
+  }, 3000);
+
   return (
     <div>
+      {/* NavBar Start */}
+      
       <Navbar bg="dark" variant="dark">
-    <Container>
-      <Navbar.Brand href="#home">
-        <img
-          alt=""
-          src={logo}
-          width="30"
-          height="30"
-          className="d-inline-block align-top"
-        />{' '}
-      HR react
-      </Navbar.Brand>
-      <Nav className="me-auto float-left">
-      <Nav.Link href="#features">About Us</Nav.Link>
-      <Nav.Link href="#pricing">Candidates</Nav.Link>
-    </Nav>
-    </Container>
-  </Navbar>
-  <Carousel variant="dark">
-  <Carousel.Item>
-    <img
-      className="d-block w-100"
-      src={capture1}
-      alt="First slide"
-    />
-    <Carousel.Caption>
-      <h5>First slide label</h5>
-      <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-    </Carousel.Caption>
-  </Carousel.Item>
-  <Carousel.Item>
-    <img
-      className="d-block w-100"
-      src={capture2}
-      alt="Second slide"
-    />
-    <Carousel.Caption>
-      <h5>Second slide label</h5>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    </Carousel.Caption>
-  </Carousel.Item>
-  <Carousel.Item>
-    <img
-      className="d-block w-100 capture"
-      src={capture3}
-      alt="Third slide"
-    />
-    <Carousel.Caption>
-      <h5>Third slide label</h5>
-      <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-    </Carousel.Caption>
-  </Carousel.Item>
-</Carousel>
+        <Container>
+          <Navbar.Brand href="/">
+            <img
+              alt=""
+              src={logo}
+              width="30"
+              height="30"
+              className="d-inline-block align-top"
+            />{" "}
+            HR React
+          </Navbar.Brand>
+          <Nav className="me-auto float-left">
+          <Nav.Link href="/" >Home</Nav.Link>
+            <Nav.Link href="aboutUs" >About Us</Nav.Link>
+            <Nav.Link  href="candidates">Candidates</Nav.Link>
+          </Nav>
+        </Container>
+      </Navbar>
+      {/* NavBar-End */}
+      {/* Carousel Start */}
+      <Carousel variant="dark">
+        <Carousel.Item>
+          <img
+            className="d-block w-100 capture"
+            src={capture1}
+            alt="First slide"
+          />
+        </Carousel.Item>
+        <Carousel.Item className="capture">
+          <img
+            className=" capture"
+            src="https://images.pexels.com/photos/3182781/pexels-photo-3182781.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+            alt="Second slide"
+          />
+        </Carousel.Item>
+        <Carousel.Item>
+          <img
+            className="d-block w-100 capture"
+            src={capture3}
+            alt="Third slide"
+          />
+        </Carousel.Item>
+      </Carousel>
+      {/* Carousel End */}
+{/*
+      {/* Toast Start */}
+      <ToastContainer className="p-3" position="bottom-center">
+        <Toast show={showA} onClose={closeToast}>
+          <Toast.Header>
+            <img
+              src={logo}
+              className="rounded me-2"
+              alt=""
+              width="30"
+              height="30"
+            />
+            <strong className="me-auto">HR React</strong>
+          </Toast.Header>
+          <Toast.Body> Your form has sent!</Toast.Body>
+        </Toast>
+      </ToastContainer>
+      {/* Toast End */}
+
+      {/* Form Start */}
+      <Container
+        className="my-3"
+        style={{ textAlign: "left", border: "1px solid black" }}
+      >
+        <Form onSubmit={handleSubmit}>
+          <fieldset>
+            <Form.Label as="legend">Contact Form</Form.Label>
+            <Row className="mb-3">
+              <Form.Group as={Col} controlId="formGridFullname">
+                <Form.Label>Fullname</Form.Label>
+                <Form.Control type="text" placeholder="Enter fullname" />
+              </Form.Group>
+
+              <Form.Group as={Col} controlId="formGridEmail">
+                <Form.Label>Email</Form.Label>
+                <Form.Control type="email" placeholder="Enter email" />
+              </Form.Group>
+              <Form.Group as={Col} controlId="formGridPhone">
+                <Form.Label>Phone</Form.Label>
+                <Form.Control type="phone" placeholder="Phone" />
+              </Form.Group>
+            </Row>
+            <Form.Group className="mb-3" controlId="formGridAddress1">
+              <Form.Label>Address</Form.Label>
+              <Form.Control placeholder="1234 Main St" />
+            </Form.Group>
+            <Row className="mb-3">
+              <Form.Group as={Col} controlId="formGridCity">
+                <Form.Label>City</Form.Label>
+                <Form.Control />
+              </Form.Group>
+              <Form.Group as={Col} controlId="formGridState">
+                <Form.Label>State</Form.Label>
+                <Form.Select defaultValue="Choose...">
+                  <option>Choose...</option>
+                  <option>...</option>
+                </Form.Select>
+              </Form.Group>
+              <Form.Group as={Col} controlId="formGridZip">
+                <Form.Label>Zip</Form.Label>
+                <Form.Control />
+              </Form.Group>
+            </Row>
+            <Button variant="primary" type="submit" className="mb-2">
+              Submit
+            </Button>
+          </fieldset>
+        </Form>
+       
+      </Container>
+      {/* Form End  */}
     </div>
-  )
+  );
 }
