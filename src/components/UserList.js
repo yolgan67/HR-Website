@@ -1,29 +1,95 @@
-import React from 'react'
-import {Table} from "react-bootstrap";
-export default function UserList(props) {
-const userList = props.users.error.response ? (<h3>There is a Problem</h3>):(props.users.users.map(user=>{return <Table striped bordered hover>
-  <thead>
-    <tr>
-      <th>#</th>
-      <th>Full Name</th>
-      <th>Profession</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>{user.id}</td>
-      <td>{user.name}</td>
-      <td>{user.profession}</td>
-      
-    </tr>
-  
-    
-  </tbody>
-</Table> }))
+import React, { useState } from "react";
+import {
+  Container,
+  Row,
+  Col,
+  Table,
+  Button,
+  InputGroup,
+  FormControl,
+  Offcanvas
+} from "react-bootstrap";
+import { RingLoader } from "react-spinners";
+import "./style.css";
+import UserCard from "./UserCard";
 
+
+export default function UserList(props) {
+  const [filteredText, setFilteredText] = useState("");
+
+  // console.log("SORT",props.users.users.sort(function(a, b){
+  //   return a.name.localeCompare(b.name)}))
+
+  const onChangeFilter = (e) => {
+    setFilteredText(e.target.value);
+  };
+  // Filtered list by name or profession while searching
+  const filteredList = props.list.users.filter((user) => {
+    return (
+      user.name.toLowerCase().indexOf(filteredText.toLowerCase()) !== -1 ||
+      user.profession.toLowerCase().indexOf(filteredText.toLowerCase()) !== -1
+    );
+  });
+
+  const emptyMessage= <h3 className="message">There are no user yet</h3>
+  const connectionMessage =  <h3 className="message">There is a Connection Problem</h3>
+  
+  const userList = props.list.error.response ? connectionMessage: (
+    filteredList
+      .sort(function (a, b) {
+        return a.name.localeCompare(b.name);
+      })
+      .map((user, i) => {
+        return (
+          <tr key={i}>
+            <td>{i + 1}</td>
+            <td>{user.name}</td>
+            <td>{user.profession}</td>
+            <td>
+              <Button variant="outline-primary" onClick={()=>props.getUserDetail(user)}>Details</Button>
+            </td>
+          </tr>
+        );
+      })
+  );
   return (
-    <div>
-{/* {userList}  */}
-    </div>
-  )
-}
+    <Container className="mt-3">
+      <Row>
+        <Col md={{ offset: 3, span: 6 }}>
+          {/* Form start */}
+          <InputGroup className="mb-3">
+            <FormControl
+              placeholder="Fullname or Profession"
+              aria-label="Fullname or Profession"
+              aria-describedby="basic-addon2"
+              onChange={onChangeFilter}
+            />
+          </InputGroup>
+          {/* Form end */}
+        </Col>
+      </Row>
+      {/* Table Start */}
+      <Row>
+        <Col md={{offset:2, span:8}}>
+          <Table striped bordered hover size="sm">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Fullname</th>
+                <th>Profession</th>
+                <th>Details</th>
+              </tr>
+            </thead>
+            <tbody>{userList}</tbody>
+          </Table>
+        </Col>
+      </Row>
+      {/* Table End */}
+      <Row>
+        <Col md={{offset:5 }}>
+      <RingLoader loading={props.list.fetching} className="ringloader" />
+        </Col>
+      </Row>
+      {(!props.list.fetching && props.list.users.length === 0 ) ? emptyMessage:""}
+    <UserCard userDetail={props.list.userDetail}/>
+    </Containe

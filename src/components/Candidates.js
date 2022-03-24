@@ -4,12 +4,13 @@ import logo from "../logo.png";
 import { Container, Row, Col, Navbar, Nav } from "react-bootstrap";
 import { fetchUser } from "../actions/userActions";
 import UserList from "./UserList";
+import {getUserDetail} from "../actions/userActions"
 
 export const Candidates = (props) => {
   useEffect(() => {
     props.fetchUser();
   }, []);
-  console.log("candidates", props.userReducer);
+  console.log("candidates", props);
 
   return (
     <div>
@@ -33,14 +34,15 @@ export const Candidates = (props) => {
         </Container>
       </Navbar>
       {/* navbar end */}
-      <h1>Candidates</h1>
-      <UserList users={props.userReducer} />
+     
+      <UserList list={props.userReducer} getUserDetail={props.getUserDetail} />
+    
     </div>
   );
 };
 
-const mapStateToProps = ({ userReducer }) => ({ userReducer });
+const mapStateToProps = ({ userReducer, }) => ({ userReducer, });
 
-const mapDispatchToProps = { fetchUser };
+const mapDispatchToProps = { fetchUser,getUserDetail};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Candidates);

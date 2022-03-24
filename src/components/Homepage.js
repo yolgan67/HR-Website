@@ -120,6 +120,10 @@ export default function Homepage() {
                 <Form.Control type="phone" placeholder="Phone" />
               </Form.Group>
             </Row>
+            <Form.Group controlId="formFile" className="mb-3">
+    <Form.Label>Default file input example</Form.Label>
+    <Form.Control type="file" />
+  </Form.Group>
             <Form.Group className="mb-3" controlId="formGridAddress1">
               <Form.Label>Address</Form.Label>
               <Form.Control placeholder="1234 Main St" />
