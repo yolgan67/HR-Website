@@ -1,6 +1,7 @@
 import axios from "axios";
 
 const api_key = "622efd653ff58f023c126354";
+const API =`https://${api_key}.mockapi.io/users`
 export const FETCH_USERS = "FETCH_USERS";
 export const USER_DETAIL = "USER_DETAIL";
 
@@ -9,17 +10,10 @@ export function fetchUser() {
     dispatch({
       type: FETCH_USERS,
       payload: axios
-        .get(`https://${api_key}.mockapi.io/users`)
+        .get(`${API}`)
         .then((res) => res.data),
     });
   };
 }
 
-export const getUserDetail = (userDetail) => {
-  return (dispatch) => {
-    dispatch({
-      type: "USER_DETAIL",
-      payload: userDetail,
-    });
-  };
-};
+

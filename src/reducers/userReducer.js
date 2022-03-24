@@ -3,7 +3,7 @@ const initialState = {
   fetching: false,
   fetched: false,
   error: {},
-userDetail:[]
+  userDetail: [],
 };
 
 const userReducer = (state = initialState, { type, payload }) => {
@@ -14,8 +14,8 @@ const userReducer = (state = initialState, { type, payload }) => {
       return { ...state, fetching: false, fetched: true, users: payload };
     case "FETCH_USERS_REJECTED":
       return { ...state, fetching: false, error: payload };
-    case "USER_DETAIL" :
-        return {...state,userDetail:payload}
+    case "USER_DETAIL":
+      return { ...state, userDetail: payload };
 
     default:
       return state;
