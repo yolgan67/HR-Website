@@ -6,6 +6,7 @@ import {
   Table,
   InputGroup,
   FormControl,
+  Offcanvas
 } from "react-bootstrap";
 import { RingLoader } from "react-spinners";
 import "./style.css";
@@ -15,6 +16,11 @@ import { Routes, Route, Link } from "react-router-dom";
 
 export default function UserList(props) {
   const [filteredText, setFilteredText] = useState("");
+
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   // console.log("SORT",props.users.users.sort(function(a, b){
   //   return a.name.localeCompare(b.name)}))
@@ -49,7 +55,7 @@ export default function UserList(props) {
               <td>{user.name}</td>
               <td>{user.profession}</td>
               <td>
-                <Link to={"user/"+user.id} >
+                <Link to={"user/"+user.id} onClick={handleShow}>
                   Details
                 </Link>
               </td>
@@ -59,7 +65,19 @@ export default function UserList(props) {
   return (
     <Container className="mt-3">
       <Row>
-        <Col md={{ offset: 3, span: 6 }}>
+        <div>
+        <Offcanvas show={show} onHide={handleClose}>
+        <Offcanvas.Header closeButton>
+          <Offcanvas.Title>USER DETAILS</Offcanvas.Title>
+        </Offcanvas.Header>
+        <Offcanvas.Body>
+        <Routes>
+        <Route path="user/:id" element={<UserCard />} />
+      </Routes>
+        </Offcanvas.Body>
+      </Offcanvas>
+        </div>
+        <Col >
           {/* Form start */}
           <InputGroup className="mb-3">
             <FormControl
@@ -75,12 +93,12 @@ export default function UserList(props) {
       </Row>
       {/* Table Start */}
       <Row>
-        <Col md={{offset:3,span:6}}>
+        {/* <Col  >
   <Routes>
         <Route path="user/:id" element={<UserCard />} />
       </Routes>
-        </Col>
-        <Col md={{ offset: 2, span: 8 }}>
+        </Col> */}
+        <Col>
           <Table striped bordered hover size="sm">
             <thead>
               <tr>
@@ -96,7 +114,7 @@ export default function UserList(props) {
       </Row>
       {/* Table End */}
       <Row>
-        <Col md={{ offset: 5 }}>
+        <Col >
           <RingLoader loading={props.list.fetching} className="ringloader" />
         </Col>
       </Row>

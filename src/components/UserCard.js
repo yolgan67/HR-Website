@@ -14,7 +14,7 @@ export default function UserCard() {
    
   return (
    
-    <Card style={{ width: '34rem', marginBottom:"10px" }}> 
+    <Card style={{  marginBottom:"10px" }}> 
     
     <Card.Body>
       <Card.Title>{name}</Card.Title>
