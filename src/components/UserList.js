@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import {
   Container,
   Row,
@@ -6,7 +6,7 @@ import {
   Table,
   InputGroup,
   FormControl,
-  Offcanvas
+  Offcanvas,
 } from "react-bootstrap";
 import { RingLoader } from "react-spinners";
 import "./style.css";
@@ -55,7 +55,7 @@ export default function UserList(props) {
               <td>{user.name}</td>
               <td>{user.profession}</td>
               <td>
-                <Link to={"user/"+user.id} onClick={handleShow}>
+                <Link to={"user/" + user.id} onClick={handleShow}>
                   Details
                 </Link>
               </td>
@@ -66,18 +66,18 @@ export default function UserList(props) {
     <Container className="mt-3">
       <Row>
         <div>
-        <Offcanvas show={show} onHide={handleClose}>
-        <Offcanvas.Header closeButton>
-          <Offcanvas.Title>USER DETAILS</Offcanvas.Title>
-        </Offcanvas.Header>
-        <Offcanvas.Body>
-        <Routes>
-        <Route path="user/:id" element={<UserCard />} />
-      </Routes>
-        </Offcanvas.Body>
-      </Offcanvas>
+          <Offcanvas show={show} onHide={handleClose}>
+            <Offcanvas.Header closeButton>
+              <Offcanvas.Title>USER DETAILS</Offcanvas.Title>
+            </Offcanvas.Header>
+            <Offcanvas.Body>
+              <Routes>
+                <Route path="user/:id" element={<UserCard />} />
+              </Routes>
+            </Offcanvas.Body>
+          </Offcanvas>
         </div>
-        <Col >
+        <Col>
           {/* Form start */}
           <InputGroup className="mb-3">
             <FormControl
@@ -93,11 +93,7 @@ export default function UserList(props) {
       </Row>
       {/* Table Start */}
       <Row>
-        {/* <Col  >
-  <Routes>
-        <Route path="user/:id" element={<UserCard />} />
-      </Routes>
-        </Col> */}
+  
         <Col>
           <Table striped bordered hover size="sm">
             <thead>
@@ -114,7 +110,7 @@ export default function UserList(props) {
       </Row>
       {/* Table End */}
       <Row>
-        <Col >
+        <Col>
           <RingLoader loading={props.list.fetching} className="ringloader" />
         </Col>
       </Row>
