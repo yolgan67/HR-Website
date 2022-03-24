@@ -1,0 +1,14 @@
+.capture {
+  width: 100%;
+  max-height: 400px;
+}
+.ringloader{
+  /* margin: 20px auto; */
+  margin: 50px auto ;
+}
+.message{
+  background-color: rgb(151, 88, 101);
+  color: azure;
+  padding: 10px;
+  text-align: center;
+}
