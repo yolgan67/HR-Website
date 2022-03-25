@@ -1,23 +1,21 @@
 import React, { useEffect } from "react";
-import { connect } from "react-redux";
+import { useDispatch, useSelector } from 'react-redux'
 import { fetchUser } from "../../actions/userActions";
 import UserList from "../UserList";
 
-
-export const Candidates = (props) => {
-  useEffect(() => {
-    props.fetchUser();
-  }, []);
+export default function Candidates  ()  {
+ 
+const dispatch = useDispatch()
+const state = useSelector(state => state)
+useEffect(() => {
+  dispatch(fetchUser())
+}, [])
 
   return (
     <div>
-      <UserList list={props.userReducer} getUserDetail={props.getUserDetail} />
+      <UserList list={state.userReducer} />
     </div>
   );
 };
 
-const mapStateToProps = ({ userReducer }) => ({ userReducer });
 
-const mapDispatchToProps = { fetchUser };
-
-export default connect(mapStateToProps, mapDispatchToProps)(Candidates);

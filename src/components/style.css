@@ -15,6 +15,8 @@
 .homepageText{
   background-color: ghostwhite;
   text-align: justify;
+  padding: 40px;
+  text-indent: 25px;
 }
 .footerText{
   color:azure;
