@@ -11,7 +11,6 @@ import {
 import { RingLoader } from "react-spinners";
 import "./style.css";
 import UserCard from "./UserCard";
-
 import { Routes, Route, Link } from "react-router-dom";
 
 export default function UserList(props) {
@@ -62,14 +61,27 @@ export default function UserList(props) {
             </tr>
           );
         });
+
   return (
     <Container className="mt-3">
       <Row>
         <div>
           <Offcanvas show={show} onHide={handleClose}>
-            <Offcanvas.Header closeButton>
-              <Offcanvas.Title>USER DETAILS</Offcanvas.Title>
+            <Offcanvas.Header>
+              <Offcanvas.Title>
+                <Link
+                  to="/candidates"
+                  onClick={handleClose}
+                  type="button"
+                  class=" text-reset justify-content-end"
+                  data-bs-dismiss="offcanvas"
+                  aria-label="Close"
+                >
+                  Back To Page
+                </Link>
+              </Offcanvas.Title>
             </Offcanvas.Header>
+
             <Offcanvas.Body>
               <Routes>
                 <Route path="user/:id" element={<UserCard />} />
