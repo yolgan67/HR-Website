@@ -11,7 +11,7 @@ export const Candidates = (props) => {
 
   return (
     <div>
-      <UserList list={props.userReducer} getUserDetail={props.getUserDetail} />
+      <UserList list={props.userReducer} />
     </div>
   );
 };

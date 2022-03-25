@@ -10,7 +10,7 @@ export default function UserCard() {
   // console.log("USERCARD",users)
   const user = users.filter((data) => data.id === params.id);
   //  console.log(user)
-  const { name, email, phone, website, profession, avatar ,adress,data} = user[0];
+  const { name, email, phone, website, profession ,adress} = user[0];
 
   return (
     <Card style={{ marginBottom: "10px" }}>
