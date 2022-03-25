@@ -66,7 +66,7 @@ export default function UserList(props) {
     <Container className="mt-3">
       <Row>
         <div>
-          <Offcanvas show={show} onHide={handleClose}>
+          <Offcanvas show={show} onHide={handleClose}  backdrop= {false}>
             <Offcanvas.Header>
               <Offcanvas.Title>
                 <Link
