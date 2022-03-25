@@ -10,7 +10,7 @@ export default function UserCard() {
   // console.log("USERCARD",users)
   const user = users.filter((data) => data.id === params.id);
   //  console.log(user)
-  const { name, email, phone, website, profession, avatar } = user[0];
+  const { name, email, phone, website, profession, avatar ,adress,data} = user[0];
 
   return (
     <Card style={{ marginBottom: "10px" }}>
@@ -27,6 +27,12 @@ export default function UserCard() {
         </ListGroupItem>
         <ListGroupItem>
           <span className="badge bg-primary text-wrap">Website:</span> <a href={website}>{website}</a>
+        </ListGroupItem>
+        <ListGroupItem>
+          <span className="badge bg-primary text-wrap">City:</span> {adress}
+        </ListGroupItem>
+        <ListGroupItem>
+          <span className="badge bg-primary text-wrap">CV:</span><span className="cv"> {name}CV.pdf</span>
         </ListGroupItem>
       </ListGroup>
     </Card>

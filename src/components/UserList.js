@@ -37,7 +37,7 @@ export default function UserList(props) {
     );
   });
 
-  const emptyMessage = <h3 className="message">There are no user yet</h3>;
+  // const emptyMessage = <h3 className="message">There are no user yet</h3>;
   const connectionMessage = (
     <h3 className="message">There is a Connection Problem</h3>
   );
@@ -93,7 +93,6 @@ export default function UserList(props) {
       </Row>
       {/* Table Start */}
       <Row>
-  
         <Col>
           <Table striped bordered hover size="sm">
             <thead>
@@ -109,14 +108,13 @@ export default function UserList(props) {
         </Col>
       </Row>
       {/* Table End */}
+
       <Row>
-        <Col>
-          <RingLoader loading={props.list.fetching} className="ringloader" />
-        </Col>
+        <RingLoader loading={props.list.fetching} className="ringloader" />
       </Row>
-      {!props.list.fetching && props.list.users.length === 0
+      {/* {!props.list.fetching && props.list.users.length === 0
         ? emptyMessage
-        : ""}
+        : ""} */}
     </Container>
   );
 }
