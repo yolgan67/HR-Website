@@ -3,7 +3,7 @@ const initialState = {
   fetching: false,
   fetched: false,
   error: {},
-  userDetail: [],
+ 
 };
 
 const userReducer = (state = initialState, { type, payload }) => {
