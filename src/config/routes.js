@@ -8,8 +8,8 @@ const AppRouters = () => {
   return (
     <Routes>
       <Route index element={<Homepage />} />
-      <Route path="aboutUs" element={<AboutUs />} />
-      <Route path="candidates/*" element={<Candidates />} />
+      <Route path="/aboutUs" element={<AboutUs />} />
+      <Route path="/candidates/*" element={<Candidates />} />
     </Routes>
   );
 };
