@@ -9,6 +9,7 @@ import {
 } from "react-bootstrap";
 import "../style.css";
 import ContactForm from "../ContactForm";
+import Footer from "../Footer";
 
 export default function Homepage() {
   const [showA, setShowA] = useState(false);
@@ -79,6 +80,7 @@ However, because you will always be swamped with a plethora of information, it c
       {/* Form Start */}
       <ContactForm  handleSubmit={handleSubmit}/>
       {/* Form End  */}
+      <Footer/>
     </div>
   );
 }

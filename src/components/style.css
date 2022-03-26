@@ -1,3 +1,7 @@
+html,body{
+  min-height: 100vh;
+ 
+}
 .capture {
   width: 100%;
   max-height: 400px;
@@ -19,12 +23,8 @@
   text-indent: 25px;
 }
 .footer{
-  position:absolute;
-top:(numberofuntits)px;
-left: (numberofUnits)px;
-right: 0;
-left: 0;
-  
+
+
 }
 .footerText{
   color:azure;
@@ -32,9 +32,6 @@ left: 0;
   margin-left: 15px;
   text-align: left; 
   font-family: 'Baskerville Old Face';
-}
-.footerText Link{
-  text-decoration-style: none;
 }
 
 .aboutP{

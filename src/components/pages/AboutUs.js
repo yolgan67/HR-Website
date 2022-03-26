@@ -1,8 +1,12 @@
 import React from 'react'
 import {Image} from 'react-bootstrap'
 import {Container,Row,Col} from "react-bootstrap"
+import Footer from '../Footer'
+
 export default function AboutUs() {
   return (
+    <div>
+
     <Container>
       <Row>
     <h2 className="text-start mt-5"> About Us</h2> 
@@ -18,5 +22,7 @@ It is a long established fact that a reader will be distracted by the readable c
 </Col>
       </Row>
     </Container>
+      <Footer/>
+    </div>
   )
 }
