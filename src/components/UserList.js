@@ -82,6 +82,7 @@ export default function UserList(props) {
                 </Link>
               </Offcanvas.Title>
             </Offcanvas.Header>
+
             <Offcanvas.Body>
               <Routes>
                 <Route path="user/:id" element={<UserCard />} />
