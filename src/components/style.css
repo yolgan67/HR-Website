@@ -18,6 +18,11 @@
   padding: 40px;
   text-indent: 25px;
 }
+.footer{
+  position: absolute;
+  bottom: 0;
+  width:100%
+}
 .footerText{
   color:azure;
   font-size:16px;

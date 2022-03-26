@@ -66,7 +66,8 @@ export default function UserList(props) {
     <Container className="mt-3">
       <Row>
         <div>
-          <Offcanvas show={show} onHide={handleClose}>
+          {/* <Offcanvas show={show} onHide={handleClose}  backdrop= {false}> */}
+          <Offcanvas show={show} onHide={handleClose} >
             <Offcanvas.Header>
               <Offcanvas.Title>
                 <Link
@@ -81,7 +82,6 @@ export default function UserList(props) {
                 </Link>
               </Offcanvas.Title>
             </Offcanvas.Header>
-
             <Offcanvas.Body>
               <Routes>
                 <Route path="user/:id" element={<UserCard />} />

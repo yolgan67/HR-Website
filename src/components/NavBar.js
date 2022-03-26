@@ -24,8 +24,8 @@ export default function NavBar() {
       </Navbar.Brand>
       <Nav className="me-auto float-left">
         <Nav.Link href="/" >Home</Nav.Link>
-        <Nav.Link href="aboutUs" >About Us</Nav.Link>
-        <Nav.Link  href="candidates">Candidates</Nav.Link>
+        <Nav.Link href="/aboutUs" >About Us</Nav.Link>
+        <Nav.Link  href="/candidates">Candidates</Nav.Link>
       </Nav>
     </Container>
   </Navbar>
