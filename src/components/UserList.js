@@ -67,23 +67,22 @@ export default function UserList(props) {
       <Row>
         <div>
           {/* <Offcanvas show={show} onHide={handleClose}  backdrop= {false}> */}
-          <Offcanvas show={show} onHide={handleClose} >
-            <Offcanvas.Header>
-              <Offcanvas.Title>
+          <Offcanvas show={show} onHide={handleClose}>
+            <Offcanvas.Header className="offcanvasHeader">
+              <Offcanvas.Title >
                 <Link
                   to="/candidates"
                   onClick={handleClose}
                   type="button"
-                  class=" text-reset justify-content-end"
+                  className=" text-white "
                   data-bs-dismiss="offcanvas"
-                  aria-label="Close"
+                  
                 >
                   Back To Page
                 </Link>
               </Offcanvas.Title>
             </Offcanvas.Header>
-
-            <Offcanvas.Body>
+            <Offcanvas.Body  className="offcanvass" >
               <Routes>
                 <Route path="user/:id" element={<UserCard />} />
               </Routes>

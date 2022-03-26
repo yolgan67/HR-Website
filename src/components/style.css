@@ -45,3 +45,9 @@ html,body{
   cursor:pointer;
   color:darkslategrey
 }
+.offcanvasHeader{
+  background-color: rgb(80, 84, 100);
+}
+.offcanvass{
+ background-color: rgb(219, 217, 226)
+}
