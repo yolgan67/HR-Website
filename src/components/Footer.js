@@ -1,11 +1,11 @@
 import React from "react";
-
 import { Container, Navbar, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
+
 export default function Footer() {
   return (
     <div className="footer">
-      <Navbar bg="dark " variant="dark" className="footer">
+      <Navbar bg="dark " variant="dark" >
         <Container>
           <Row>
             <Navbar.Brand as={Col} href="/">
@@ -21,7 +21,7 @@ export default function Footer() {
           </Row>
           <div className="me-5 float-end">
             <Link to="" className="footerText" as={Col}>
-              {" "}
+             
               Contact Us
             </Link>
             <Link to="" className="footerText " as={Col}>
@@ -32,5 +32,6 @@ export default function Footer() {
         </Container>
       </Navbar>
     </div>
+ 
   );
 }

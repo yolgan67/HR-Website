@@ -19,16 +19,24 @@
   text-indent: 25px;
 }
 .footer{
-  position: absolute;
-  bottom: 0;
-  width:100%
+  position:absolute;
+top:(numberofuntits)px;
+left: (numberofUnits)px;
+right: 0;
+left: 0;
+  
 }
 .footerText{
   color:azure;
   font-size:16px;
   margin-left: 15px;
   text-align: left; 
+  font-family: 'Baskerville Old Face';
 }
+.footerText Link{
+  text-decoration-style: none;
+}
+
 .aboutP{
   text-align: justify;
   background-color: ghostwhite;
