@@ -1,10 +1,19 @@
-import React from "react";
-import { Container, Row, Col, Form, Button } from "react-bootstrap";
+import React,{useState} from "react";
+import { Container, Row, Col, Form, Button,ToastContainer,Toast } from "react-bootstrap";
 export default function ContactForm(props) {
+  const [showA, setShowA] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setShowA(true);
+  };
+  const closeToast = setTimeout(() => {
+    setShowA(false);
+  }, 3000);
   return (
     <div>
       <Container className="my-3" style={{ textAlign: "left" }}>
-        <Form onSubmit={props.handleSubmit}>
+        <Form onSubmit={handleSubmit}>
           <fieldset>
             <Form.Label as="legend">Contact Form</Form.Label>
             <Row className="mb-3">
@@ -53,6 +62,26 @@ export default function ContactForm(props) {
           </fieldset>
         </Form>
       </Container>
+        {/* Toast Start */}
+        <ToastContainer className="p-3 footer " position="bottom-center">
+        <Toast show={showA} onClose={closeToast}>
+          <Toast.Header>
+            <img
+              src="./logo.png"
+              className="rounded me-2"
+              alt=""
+              width="30"
+              height="30"
+            />
+            <strong className="me-auto">HR React</strong>
+          </Toast.Header>
+          <Toast.Body className="bg-primary text-white">
+            {" "}
+            Your form has sent!
+          </Toast.Body>
+        </Toast>
+      </ToastContainer>
+      {/* Toast End */}
     </div>
   );
 }
