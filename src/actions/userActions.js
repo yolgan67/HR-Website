@@ -1,7 +1,8 @@
 import axios from "axios";
 
-const api_key = "622efd653ff58f023c126354";
-const API =`https://${api_key}.mockapi.io/users`
+//const api_key = "622efd653ff58f023c126354";
+//const API =`https://${api_key}.mockapi.io/users`
+const API ="https://hr-website.herokuapp.com/candidates"
 
 
 export function fetchUser() {
