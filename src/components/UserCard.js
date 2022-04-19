@@ -8,7 +8,7 @@ export default function UserCard() {
   const users = useSelector((state) => state.userReducer.users);
   // console.log("PARAMS",params)
   // console.log("USERCARD",users)
-  const user = users.filter((data) => data.id === params.id);
+  const user = users.filter((data) => data._id === params._id);
   //  console.log(user)
   const { name, email, phone, website, profession ,adress} = user[0];
 
