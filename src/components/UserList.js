@@ -54,7 +54,7 @@ export default function UserList(props) {
               <td>{user.name}</td>
               <td>{user.profession}</td>
               <td>
-                <Link to={"user/" + user.id} onClick={handleShow}>
+                <Link to={"user/" + user._id} onClick={handleShow}>
                   Details
                 </Link>
               </td>

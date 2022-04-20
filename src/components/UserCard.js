@@ -1,16 +1,16 @@
 import React from "react";
 import { Card, ListGroup, ListGroupItem } from "react-bootstrap";
-import { useParams } from "react-router-dom";
+import { useParams } from "react-router";
 import { useSelector } from "react-redux";
 
 export default function UserCard() {
   let params = useParams();
   const users = useSelector((state) => state.userReducer.users);
-  // console.log("PARAMS",params)
-  // console.log("USERCARD",users)
-  const user = users.filter((data) => data._id === params._id);
+  console.log("PARAMS",params)
+  console.log("USERCARD",users)
+  const user = users.find((data) => data._id === params.id);
   //  console.log(user)
-  const { name, email, phone, website, profession ,adress} = user[0];
+  const { name, email, phone, website, profession ,adress} = user;
 
   return (
     <Card style={{ marginBottom: "10px" }}>
@@ -28,9 +28,9 @@ export default function UserCard() {
         <ListGroupItem>
           <span className="badge bg-primary text-wrap">Website:</span> <a href={website}>{website}</a>
         </ListGroupItem>
-        <ListGroupItem>
+        {/* <ListGroupItem>
           <span className="badge bg-primary text-wrap">City:</span> {adress}
-        </ListGroupItem>
+        </ListGroupItem> */}
         <ListGroupItem>
           <span className="badge bg-primary text-wrap">CV:</span><span className="cv"> {name}CV.pdf</span>
         </ListGroupItem>
