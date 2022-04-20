@@ -6,8 +6,8 @@ import { useSelector } from "react-redux";
 export default function UserCard() {
   let params = useParams();
   const users = useSelector((state) => state.userReducer.users);
-  console.log("PARAMS",params)
-  console.log("USERCARD",users)
+  // console.log("PARAMS",params)
+  // console.log("USERCARD",users)
   const user = users.find((data) => data._id === params.id);
   //  console.log(user)
   const { name, email, phone, website, profession ,adress} = user;
