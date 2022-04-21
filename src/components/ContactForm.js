@@ -19,41 +19,41 @@ export default function ContactForm(props) {
             <Row className="mb-3">
               <Form.Group as={Col} controlId="formGridFullname">
                 <Form.Label>Full Name</Form.Label>
-                <Form.Control type="text" placeholder="Full Name" />
+                <Form.Control type="text" placeholder="Full Name" value="name" />
               </Form.Group>
               <Form.Group as={Col} controlId="formGridFullname">
                 <Form.Label>Profession</Form.Label>
-                <Form.Control type="text" placeholder="Profession" />
+                <Form.Control type="text" placeholder="Profession" value="profession" />
               </Form.Group>
             </Row>
             <Row className="mb-3">
               <Form.Group as={Col} controlId="formGridEmail">
                 <Form.Label>Email</Form.Label>
-                <Form.Control type="email" placeholder="Email" />
+                <Form.Control type="email" placeholder="Email" value="email"/>
               </Form.Group>
               <Form.Group as={Col} controlId="formGridPhone">
                 <Form.Label>Phone</Form.Label>
-                <Form.Control type="phone" placeholder="Phone" />
+                <Form.Control type="phone" placeholder="Phone" value="phone" />
               </Form.Group>
               <Form.Group as={Col} controlId="formGridPhone">
                 <Form.Label>Website</Form.Label>
-                <Form.Control type="phone" placeholder="Website" />
+                <Form.Control type="url" placeholder="Website" value="website" />
               </Form.Group>
             </Row>
             <Row className="mb-3">
               <Form.Group as={Col} controlId="formGridAddress1">
                 <Form.Label>Address</Form.Label>
-                <Form.Control placeholder="1234 Main St" />
+                <Form.Control placeholder="1234 Main St" value="address"/>
               </Form.Group>
             </Row>
             <Row className="mb-3">
               <Form.Group as={Col} controlId="formFile">
                 <Form.Label>Insert Your CV</Form.Label>
-                <Form.Control type="file" />
+                <Form.Control type="file" value="data"/>
               </Form.Group>
               <Form.Group as={Col} controlId="formFile">
                 <Form.Label>Insert Your Photo</Form.Label>
-                <Form.Control type="file" />
+                <Form.Control type="file" value="avatar" />
               </Form.Group>
             </Row>
             <Button variant="primary" type="submit" className="mb-2">
