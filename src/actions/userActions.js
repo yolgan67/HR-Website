@@ -16,9 +16,9 @@ export function fetchUser() {
   };
 }
 
-export function postUser(name,profession,email,phone,website,adress,data,avatar) {
+export function newUser(name,profession,email,phone,website,adress,data,avatar) {
   return (dispatch) => {
-    dispatch({type: "NEW_USER",payload: axios.post(`${API}`,{name,profession,email,phone,website,adress,data,avatar})
+    dispatch({type: "NEW_USER",payload: axios.post(`${API}`,name,profession,email,phone,website,adress,data,avatar)
     .then((res) => res.data)})
   }
 }
